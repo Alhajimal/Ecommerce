@@ -1,0 +1,87 @@
+{% extends 'shop/layouts/main.html' %}
+
+{% block content %}
+<div class="py-3 bg-dark">
+  <div class="container">
+    <a class="text-white" href="{% url 'home' %}">Home /</a>
+    <a class="text-white" href="{% url 'contact' %}">Contact</a>
+  </div>
+
+
+</div>
+
+<div class="container mt-2">
+    {% comment %} {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+      <strong>{{message}}</strong>  
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}  {% endcomment %}
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form action="/contact/" method="post">
+             {% csrf_token %}
+                <br>
+              
+                <label for="name" class=>Full Name</label>
+                <div class="form-group">
+                  <input type="text" class="form-control p-2" id="name" name="name" required>
+              
+                </div>
+                
+                <label for="email">Email</label>
+                <div class="form-group">
+                  <input type="email" class="form-control p-2" id="email" name="email" required>
+              
+                </div>
+
+                <label for="description">How can I help you?</label>
+                <div class="form-group">
+                  <textarea type="text" class="form-control p-2" id="description" name="description" required></textarea>
+              
+                </div>
+
+                <label for="pnumber">Phone Number</label>
+                <div class="form-group">
+                  <input type="number" class="form-control p-2" id="pnumber" name="pnumber" required>
+              
+                </div>
+
+
+               
+               
+              
+                <br>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                </div>
+           
+                <br>
+                <br>
+
+            </form>
+                
+            </div>
+            
+            
+            
+              
+            
+            
+            
+          
+        </div>
+        <div class="col-md-4"></div>
+
+    </div>
+
+
+</div>
+
+{% endblock content %}
+
+
+
+
+  

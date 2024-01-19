@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>
+        {% block title %}
+
+        {% endblock title %}
+
+    </title>
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Playfair+Display&display=swap" rel="stylesheet">
+    <link  rel="stylesheet" href="{% static 'css/custom.css'%}">
+
+    {% comment %} alertify js css links below {% endcomment %}
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+    <style>
+        *{
+            font-family: 'EB Garamond', serif;
+        }
+        a{
+            text-decoration:none;
+        }
+        .product-viewtag{
+            background-color:red;
+            color:white;
+            font-size:11px;
+            line-height: 1;
+            position: absolute;
+            text-align: center;
+            text-transform: uppercase;
+            top:22px;
+            margin-left: 17.5rem;
+            padding: 7px 10px;
+            font-weight: 600;
+            min-width:45px;
+
+        }
+        .active{
+
+           font-weight:bolder;
+
+        }
+        .logo{
+            width:50px;
+            height:50px;
+        }
+    
+            
+        
+    </style>
+</head>
+<body>
+    {% include 'shop/inc/navbar.html' %}
+
+    {% block content %}
+    
+    {% endblock content %}
+
+ 
+
+ 
+    <!-- jquery link below -->
+    <script src="{% static 'js/jquery-3.7.0.min.js' %}"></script>
+
+    <!-- custom.js file ku link -->
+    <script src="{% static 'js/custom.js' %}"></script>
+
+
+    <!-- bootstrapt link below -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" ></script>
+
+    {% comment %} alertify js below link {% endcomment %}
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+    <script>
+         
+        alertify.set('notifier','position', 'top-right');
+        {% for msg in messages %}
+           alertify.success('{{ msg }}');
+        {% endfor %}
+    </script>
+
+    {% block scripts %}
+
+    {% endblock scripts %}
+
+    {% comment %} razorpay checkout {% endcomment %}
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="{% static 'js/checkout.js' %}"></script>
+    
+</body>
+</html>
